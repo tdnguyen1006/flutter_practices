@@ -1,0 +1,11 @@
+{
+    "@@locale": "en",
+    
+    "appTitle": "Flutter Practices",
+    "@appTitle": {
+        "description": "The title of the app"
+    },
+
+    "example": "You have pushed the button this many times:",
+    "dashboard": "Dashboard"
+}
