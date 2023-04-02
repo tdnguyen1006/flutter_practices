@@ -44,7 +44,7 @@ class _MyAppState extends State<MyApp> {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: "Flutter Practices",
-          locale: Provider.of<LanguageProvider>(context).isUs
+          locale: Provider.of<LanguageProvider>(context).isEn
               ? const Locale("en")
               : const Locale("vi"),
           localizationsDelegates: const [
@@ -54,11 +54,9 @@ class _MyAppState extends State<MyApp> {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: AppLocalizations.supportedLocales,
-          theme: CustomTheme.lightTheme,
-          darkTheme: CustomTheme.darkTheme,
-          themeMode: Provider.of<ThemeProvider>(context).isDark
-              ? ThemeMode.dark
-              : ThemeMode.light,
+          theme: Provider.of<ThemeProvider>(context).isDark
+              ? CustomTheme.darkTheme
+              : CustomTheme.lightTheme,
           home: const DashboardPage(),
         );
       },

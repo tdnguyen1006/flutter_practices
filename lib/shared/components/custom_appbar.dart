@@ -41,7 +41,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
           onPressed: () {
             languageProvider.changeLanguage();
           },
-          icon: languageProvider.isUs
+          icon: languageProvider.isEn
               ? SvgPicture.asset("svg/vn.svg")
               : SvgPicture.asset("svg/us.svg"),
           iconSize: 15,

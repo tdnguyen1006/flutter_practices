@@ -8,7 +8,7 @@ class CustomTheme {
     scheme: FlexScheme.gold,
     surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
     blendLevel: 15,
-    appBarStyle: FlexAppBarStyle.background,
+    appBarStyle: FlexAppBarStyle.primary,
     appBarOpacity: 0.90,
     subThemesData: const FlexSubThemesData(
       blendOnLevel: 30,
