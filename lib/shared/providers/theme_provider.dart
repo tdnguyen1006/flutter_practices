@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practices/shared/const/const.dart';
 import 'package:flutter_practices/shared/models/storage_model.dart';
 import 'package:flutter_practices/shared/services/storage_service.dart';
 
@@ -15,7 +16,7 @@ class ThemeProvider with ChangeNotifier {
     _isDark = !_isDark;
     await _storageService.writeSecureData(
       StorageItem(
-        "darkMode",
+        themeKey,
         _isDark.toString(),
       ),
     );
@@ -23,7 +24,16 @@ class ThemeProvider with ChangeNotifier {
   }
 
   getDarkThemeFromStorage() async {
-    String? darkMode = await _storageService.readSecureData("darkMode");
-    _isDark = darkMode != null ? darkMode.toLowerCase() == "true" : false;
+    if (await _storageService.containsKeyInSecureData(themeKey)) {
+      String? darkMode = await _storageService.readSecureData(themeKey);
+      if (darkMode != null) {
+        if (darkMode.toLowerCase() == "true") {
+          _isDark = true;
+        } else {
+          _isDark = false;
+        }
+      }
+    }
+    notifyListeners();
   }
 }

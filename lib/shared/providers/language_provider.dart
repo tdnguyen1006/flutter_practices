@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_practices/shared/const/const.dart';
 import 'package:flutter_practices/shared/models/storage_model.dart';
 import 'package:flutter_practices/shared/services/storage_service.dart';
 
@@ -15,7 +16,7 @@ class LanguageProvider with ChangeNotifier {
     _isEn = !_isEn;
     await _storageService.writeSecureData(
       StorageItem(
-        "us",
+        languageKey,
         _isEn.toString(),
       ),
     );
@@ -23,7 +24,16 @@ class LanguageProvider with ChangeNotifier {
   }
 
   getLanguageFromStorage() async {
-    String? english = await _storageService.readSecureData("en");
-    _isEn = english != null ? english.toLowerCase() == "true" : false;
+    if (await _storageService.containsKeyInSecureData(languageKey)) {
+      String? eng = await _storageService.readSecureData(languageKey);
+      if (eng != null) {
+        if (eng.toLowerCase() == "true") {
+          _isEn = true;
+        } else {
+          _isEn = false;
+        }
+      }
+    }
+    notifyListeners();
   }
 }
