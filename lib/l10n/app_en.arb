@@ -7,5 +7,7 @@
     },
 
     "example": "You have pushed the button this many times:",
-    "dashboard": "Dashboard"
+    "dashboard": "Dashboard",
+    "stock": "Stock",
+    "logout": "Logout"
 }

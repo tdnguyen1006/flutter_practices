@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_practices/shared/components/custom_appBar.dart';
 import 'package:flutter_practices/shared/components/custom_drawer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:flutter_practices/shared/components/custom_navigation_rail.dart';
+import 'package:flutter_practices/shared/components/custom_text.dart';
 import 'package:flutter_practices/shared/const/const.dart';
-import 'package:flutter_practices/shared/providers/drawer_provider.dart';
-import 'package:provider/provider.dart';
 
 class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
@@ -25,34 +25,27 @@ class _DashboardPageState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    DrawerProvider drawerProvider = Provider.of<DrawerProvider>(context);
 
     return Scaffold(
-      drawer: width >= mobileWidth ? null : const CustomDrawer(),
+      drawer: width >= tabletWidth ? null : const CustomDrawer(),
       appBar: CustomAppBar(
         title: AppLocalizations.of(context)!.dashboard,
       ),
       body: Row(
         children: [
-          width >= mobileWidth
-              ? AnimatedContainer(
-                  width: drawerProvider.isOpen
-                      ? drawerDefaultWidth
-                      : drawerMiniWidth,
-                  duration: const Duration(milliseconds: fastAnimationDuration),
-                  child: const CustomDrawer(),
-                )
-              : const SizedBox(),
+          if (width >= tabletWidth) const CustomNavigationRail(),
           Expanded(
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
-                  Text(
-                    AppLocalizations.of(context)!.example,
+                  CustomText(
+                    title: AppLocalizations.of(context)!.example,
+                    width: width,
                   ),
-                  Text(
-                    '$_counter',
+                  CustomText(
+                    title: '$_counter',
+                    width: width,
                   ),
                 ],
               ),

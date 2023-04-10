@@ -3,11 +3,10 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_practices/shared/providers/drawer_provider.dart';
 import 'package:flutter_practices/shared/providers/language_provider.dart';
 import 'package:flutter_practices/shared/providers/theme_provider.dart';
+import 'package:flutter_practices/shared/routes/routes.dart';
 import 'package:flutter_practices/shared/theme/custom_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-
-import 'features/Dashboard/screens/dashboard.dart';
 
 void main() {
   runApp(const MyApp());
@@ -41,7 +40,7 @@ class _MyAppState extends State<MyApp> {
         ),
       ],
       builder: (context, child) {
-        return MaterialApp(
+        return MaterialApp.router(
           debugShowCheckedModeBanner: false,
           title: "Flutter Practices",
           locale: Provider.of<LanguageProvider>(context).isEn
@@ -57,7 +56,7 @@ class _MyAppState extends State<MyApp> {
           theme: Provider.of<ThemeProvider>(context).isDark
               ? CustomTheme.darkTheme
               : CustomTheme.lightTheme,
-          home: const DashboardPage(),
+          routerConfig: router,
         );
       },
     );

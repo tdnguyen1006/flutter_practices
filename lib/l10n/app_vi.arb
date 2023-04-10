@@ -2,5 +2,7 @@
     "@@locale": "vi",
     "appTitle": "Thực Hành Flutter",
     "example": "Số lần bạn đã nhấn nút này:",
-    "dashboard": "Bảng Điều Khiển"
+    "dashboard": "Bảng Điều Khiển",
+    "stock": "Hàng Tồn Kho",
+    "logout": "Thoát"
 }
