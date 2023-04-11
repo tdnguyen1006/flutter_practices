@@ -50,7 +50,7 @@ class CustomNavigationRail extends StatelessWidget {
             break;
         }
       },
-      extended: drawerProvider.isExtended,
+      extended: width >= tabletWidth ? drawerProvider.isExtended : true,
     );
   }
 }

@@ -4,32 +4,31 @@ import 'package:google_fonts/google_fonts.dart';
 
 class CustomTheme {
   CustomTheme._();
-  static FlexScheme flexScheme = FlexScheme.money;
+  static FlexScheme flexScheme = FlexScheme.mango;
   static ThemeData darkTheme = FlexThemeData.dark(
     scheme: flexScheme,
-    surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
-    blendLevel: 15,
-    appBarStyle: FlexAppBarStyle.background,
-    appBarOpacity: 0.90,
+    surfaceMode: FlexSurfaceMode.highScaffoldLevelSurface,
+    blendLevel: 13,
     subThemesData: const FlexSubThemesData(
-      blendOnLevel: 30,
+      blendOnLevel: 20,
+      useTextTheme: true,
+      fabSchemeColor: SchemeColor.primaryContainer,
     ),
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     fontFamily: GoogleFonts.inter().fontFamily,
-    keyColors: const FlexKeyColors(),
   );
 
   static ThemeData lightTheme = FlexThemeData.light(
     scheme: flexScheme,
-    surfaceMode: FlexSurfaceMode.highScaffoldLowSurface,
-    blendLevel: 20,
-    appBarOpacity: 0.95,
+    surfaceMode: FlexSurfaceMode.highScaffoldLevelSurface,
+    blendLevel: 7,
     subThemesData: const FlexSubThemesData(
-      blendOnLevel: 20,
+      blendOnLevel: 10,
       blendOnColors: false,
+      useTextTheme: true,
+      fabSchemeColor: SchemeColor.primary,
     ),
     visualDensity: FlexColorScheme.comfortablePlatformDensity,
     fontFamily: GoogleFonts.inter().fontFamily,
-    keyColors: const FlexKeyColors(),
   );
 }

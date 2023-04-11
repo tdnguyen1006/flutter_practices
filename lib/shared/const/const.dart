@@ -7,5 +7,5 @@ const String languageKey = "en";
 const String themeKey = "theme";
 const double desktopTextScale = 1;
 const double tabletTextScale = 0.9;
-const double mobileTextScale = 0.7;
+const double mobileTextScale = 0.8;
 const double navRailDestTextScale = 1.2;

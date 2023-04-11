@@ -8,7 +8,7 @@ class ThemeProvider with ChangeNotifier {
   bool get isDark => _isDark;
   final StorageService _storageService = StorageService();
   ThemeProvider() {
-    _isDark = true;
+    _isDark = false;
     getDarkThemeFromStorage();
   }
 

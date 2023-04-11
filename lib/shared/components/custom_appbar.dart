@@ -7,6 +7,7 @@ import 'package:flutter_practices/shared/providers/drawer_provider.dart';
 import 'package:flutter_practices/shared/providers/language_provider.dart';
 import 'package:flutter_practices/shared/providers/theme_provider.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -35,6 +36,7 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
             title: AppLocalizations.of(context)!.logout,
             width: width,
           ),
+          onTap: () => context.go("/login"),
         ),
       ),
     ];
@@ -69,8 +71,8 @@ class CustomAppBar extends StatelessWidget with PreferredSizeWidget {
             languageProvider.changeLanguage();
           },
           icon: languageProvider.isEn
-              ? SvgPicture.asset("svg/vn.svg")
-              : SvgPicture.asset("svg/us.svg"),
+              ? SvgPicture.asset("assets/svg/vn.svg")
+              : SvgPicture.asset("assets/svg/us.svg"),
         ),
         PopupMenuButton(
           tooltip: "",
